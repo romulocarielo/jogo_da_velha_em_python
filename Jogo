@@ -1,0 +1,23 @@
+# Jogo-da-velha
+
+jogador = 0 # jogador 1
+board = campoDeJogo()
+vencedor = verificaQuemVenceu(board)
+while(not vencedor):
+    mostraCampoDeJogo(board)
+    
+    i = validarJogada("Digite a linha: ")
+    j = validarJogada("Digite a coluna: ")
+    
+    if(verificaJogada(board, i, j)):
+        fazerJogada(board, i, j, jogador)
+        jogador = (jogador + 1)%2
+    else:
+        print("A posição informada já está ocupada.")
+    
+    vencedor = verificaQuemVenceu(board)
+
+print("===================")
+mostraCampoDeJogo(board)
+print("O vencedor é o jogador => ", vencedor)
+print("===================")
